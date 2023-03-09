@@ -1,0 +1,392 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:site_name" content="YangYang Blog">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://yangyangdy.github.io//img/home-bg-jeep.jpg">
+<meta property="twitter:image" content="https://yangyangdy.github.io//img/home-bg-jeep.jpg">
+<meta name=title content>
+<meta property="og:title" content>
+<meta property="twitter:title" content>
+<meta name=description content="杨洋，程序员, 开源爱好者，生活探险家 | 这里是 杨洋 的博客，与你一起发现更大的世界。">
+<meta property="og:description" content="杨洋，程序员, 开源爱好者，生活探险家 | 这里是 杨洋 的博客，与你一起发现更大的世界。">
+<meta property="twitter:description" content="杨洋，程序员, 开源爱好者，生活探险家 | 这里是 杨洋 的博客，与你一起发现更大的世界。">
+<meta property="twitter:card" content="summary">
+<meta name=keyword content="杨洋, yangyang, YangYang, , 杨洋的网络日志, 杨洋的博客, Yangyang Blog, 博客, 个人网站, 互联网, Web, 云原生, Golang, 微服务, Microservice">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<title>杨洋的博客 | YangYang Blog | yangyangdy</title>
+<link rel=canonical href=/post/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/>
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/hugo-theme-cleanwhite.min.css>
+<link rel=stylesheet href=/css/zanshang.css>
+<link href=https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css rel=stylesheet type=text/css>
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js></script>
+<script src=/js/hux-blog.min.js></script>
+<script src=/js/lazysizes.min.js></script>
+</head>
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+<div class=container-fluid>
+<div class="navbar-header page-scroll">
+<button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/>YangYang Blog</a>
+</div>
+<div id=huxblog_navbar>
+<div class=navbar-collapse>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a href=/>All Posts</a>
+</li>
+<li><a href=/archive/>ARCHIVE</a></li>
+<li><a href=/notes/>NOTES</a></li>
+<li><a href=/about/>ABOUT</a></li>
+<li>
+<a href=/search><i class="fa fa-search"></i></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<script>var $body=document.body,$toggle=document.querySelector('.navbar-toggle'),$navbar=document.querySelector('#huxblog_navbar'),$collapse=document.querySelector('.navbar-collapse');$toggle.addEventListener('click',handleMagic);function handleMagic(a){$navbar.className.indexOf('in')>0?($navbar.className=" ",setTimeout(function(){$navbar.className.indexOf('in')<0&&($collapse.style.height="0px")},400)):($collapse.style.height="auto",$navbar.className+=" in")}</script>
+<style type=text/css>header.intro-header{background-image:url(/img/home-bg-jeep.jpg)}</style>
+<header class=intro-header>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<div class=tags>
+</div>
+<h1></h1>
+<h2 class=subheading></h2>
+<span class=meta>
+Posted by
+YangYang Blog
+on
+Monday, January 1, 0001
+</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<article>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container">
+<h2 id=因果推断定义>因果推断定义</h2>
+<p>因果推断Causal Inference是基于观察数据进行反事实估计，分析干预与结果之间的因果关系的一门学科。</p>
+<p>痛点：传统的实验性研究（RCT）耗费人力物力，并且存在一些不可逾越的障碍。</p>
+<h2 id=厘清相关性和因果性的关系>厘清相关性和因果性的关系</h2>
+<p>在日常生活中经常将相关性和因果性混淆。但是，相关性和因果性有着本质的区别。</p>
+<p><em><strong>相关不代表因果（correlation does not imply causation）</strong></em>。</p>
+<p><strong>相关性</strong>：两个变量之间呈现一个变量随另一个变量的变化而表现出增加或者减少的趋势。</p>
+<p><strong>因果性</strong>：一个变量的因导致了另一个变量的果 。</p>
+<p><strong>eg.<strong>吃早餐的人比不吃早餐的人体重轻并不能推出吃早餐有助于减肥。而可能是吃早餐的人拥有更好的生活方式，这导致了他们有更轻的体重。在这种情况下，拥有更好的生活方式是吃早餐和体重减轻的共同原因，当然健康的生活方式也可以称为吃早餐和体重轻重之间因果关系的</strong>混淆因子</strong>。</p>
+<p>现实生活中我们会遇到更多更加复杂的两种行为之间的关系，因此因果推断就显得非常必要。</p>
+<p>探究因果关系<strong>最有效</strong>的方法就是进行<strong>随机对照试验(RCT randomized controlled trial)</strong>。将参与者随机分成对照组和实验组，控制变量来观测目标干预的效果。</p>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>样本少，不具备足够的代表性</li>
+<li>RCT只关注样本的平均变化，不能解释个体的干预效果</li>
+<li>道德问题，实际无法操作</li>
+</ul>
+<p>因此，可以通过基于观察性数据来进行因果推断。观察性数据通过直接观察目标得出，没有对照也没有控制变量。因此，我们无法进行反事实结果的推断，而无法探究其因果关系。</p>
+<p>现在，因果推断中两个主流的研究方案：</p>
+<p><strong>潜在结果框架potential outcome framework</strong>：预估不同干预下的潜在结果，以估计实际的干预结果。</p>
+<p><strong>结构因果模型structual causal model</strong>：通过构建因果图与结构方程来探究因果关系。</p>
+<h2 id=因果推断基础>因果推断基础</h2>
+<p>在下面主要介绍潜在结果框架下的因果推断方法。</p>
+<h3 id=基本定义>基本定义</h3>
+<p><strong>单元（unit）</strong>。单元是干预效果研究中的最小研究对象。一个单元是处于特定时间点物体、公司、患者、个体、人群。在潜在结果框架下，不同时间点的单元是不同的，一个单元可以视作整个数据集的一个样本。</p>
+<p><strong>干预（treatment）</strong>。作用于单元上动作。</p>
+<p>$W(W \in {0, 1, 2, &mldr; ,N_{w}})$ 表示干预，$w$ 表示不同干预动作的数量。对于二元干预而言，这里$W=1$ 是干预组 ，$W=0$ 是控制组。</p>
+<p><strong>潜在结果（potential outcome）</strong>。对于每一个单元-干预对，对于干预作用在该单元所得到的结果称为<strong>潜在结果</strong>。将干预值为$w$的潜在结果定义为$Y(W=w)$。</p>
+<p><strong>观察结果（observed outcome）</strong>。指<strong>实际</strong>执行了干预所对应的结果。用$Y^F$表示。</p>
+<p><strong>反事实结果（Counterfactual outcome）</strong>。单元如果执行了另一种干预所得到的结果。用$Y^{CF}$表示。</p>
+<p>在观察数据中，除了执行的干预和观察结果，unit的其他信息也会被记录，这些信息被称为预干预变量和后干预变量。</p>
+<p><strong>预干预变量（pre-treatment variables）</strong>。指不会被干预影响的变量，也称为<strong>背景变量</strong>， 例如患者的疾病史。定义$X$为预干预变量。</p>
+<p><strong>后干预变量（post-treatment variables）</strong>。指会被干预影响的变量。一个例子就是中间结果，例如药物试验中服药后的实验室检查结果。后续的变量指代后干预变量。</p>
+<h3 id=干预效果定义>干预效果定义</h3>
+<p>接下来的说明以二元干预进行说明。</p>
+<p>在<strong>人群</strong>层面的干预效果为**平均干预效果(Average treatment effect, ATE)**定义为：</p>
+<p>$$ATE = E[Y(W = 1) − Y(W = 0)], $$</p>
+<p>$Y (W = 1)$和$Y(W=0)$分别是整个人群的潜在干预结果和对照结果。</p>
+<p>在<strong>干预组</strong>层面，干预效果被称为<strong>干预组的平均干预效果(Average treatment effect on the treated group, ATT)</strong>，定义为：</p>
+<p>$$ATT = E[Y(W = 1)|W = 1] − E[Y(W = 0)|W = 1],$$</p>
+<p>$Y(W = 1)|W = 1$和$Y(W = 0)|W = 1$分别表示干预组的潜在干预结果与对照组结果。同理，在对照组的平均干预效果被称为<strong>ATC</strong>。</p>
+<p>在<strong>亚组</strong>层面，干预效果被称为条件平均干预效果(conditional average treatment effect, CATE)，定义为：</p>
+<p>$$CATE = E[Y(W = 1)|X = x] − E[Y(W = 0)|X = x],$$</p>
+<p>$Y(W = 1)|X=x$ 和$Y(W = 0)|X=x$表示在预干预变量$X=x$的亚组中的潜在干预结果与对照结果。</p>
+<p>当干预效果在不同亚组中存在差异时，$CATE$是一个常用的干预效果的评估方法。</p>
+<p>在<strong>个体</strong>层面，干预效果被称为<strong>个体干预效果(Individual treatment effect, ITE)</strong>，单元$i $的ITE效果表示为：</p>
+<p>$$ITE_{i} = Y_{i}(W = 1) − Y_{i}(W = 0),$$在部分情况下可以将ITE与CATE视作等价。</p>
+<p><strong>因果推断的目标</strong>是从观察数据中估计干预的效果。对于给定的数据集 ${X_i, W_i, Y_{i}^F}_{i=1}^N$，估计上述定义的各项**干预效果**。</p>
+<p>结合一个案例进行讲解：</p>
+<p>在一个医疗场景中，我们想要评估不同药物对某种疾病的疗效。</p>
+<p>获得的观察性数据：若干患者的电子健康记录（包括人口统计学信息，患者铎服用的具体药物与具体剂量，相关检查检验的结果）。从数据中我们只能观察到特定患者的特定事实结果。</p>
+<p>目标：预测对某一患者执行其他干预动作所获得的效果。（即反事实结果）</p>
+<p>为了解决上述问题，常用三个假设：</p>
+<ul>
+<li><strong>稳定单元干预假设</strong>：任意单元的潜在结果都不会受到其他单元干预的影响。</li>
+<li><strong>可忽略性假设</strong>： 给定背景变量$X$，干预的分配$W$独立于潜在结果，对背景变量相同的单元其干预分配可以视为随机的。即无论潜在结果如何，这两名患者的干预分配策略也会是相同的。</li>
+<li><strong>正值假设</strong>：对于任意的$X$，干预分配都是不确定的。</li>
+</ul>
+<p>由此可以得到如下公式：
+<img src=a4358ff136754491e747063656b34f8d.png alt=截图了哦>
+</p>
+<p>基于上面的等式可以得到下面在不同层面干预效果的公式：</p>
+<p></p>
+<p>上述公式都转换成了基于不同组别的ITE的均值。</p>
+<p>由于我们无法同时观察到一个单元的潜在干预结果与对照结果，因此，干预效果的估计关键在于<strong>如何估计ITE的反事实结果</strong>。</p>
+<h2 id=混杂因子的影响和处理方式>混杂因子的影响和处理方式</h2>
+<p><strong>混杂因子(Confounders)</strong>：混杂因子是会同时影响干预分配以及结果的变量。</p>
+<p>因果推断的核心是估计在一个特定的组别上的平均潜在干预结果与对照结果，以ATE为例：</p>
+<p></p>
+<p>$N_T$和$N_C$分别是干预组合对照组的单元数量。</p>
+<p>由于混杂因子的原因，上述的估计方式存在严重的误差，甚至会包含虚假的因果效应。</p>
+<p><strong>混杂因子</strong>是一些<strong>特殊的预干预变量（即背景变量）</strong>，当直接计算观测到的干预与对照结果的平均值时，所得出的 不仅包括了干预对结果的影响，<strong>还包括了混杂因子对结果的影响</strong>，从而导致了伪效的出现。在上面的例子中，患者年龄就是一个混杂因子。年龄影响着康复率：一般来说，年轻患者要比老年患者恢复地更好；年龄同时还影响着干预的选择：年轻的患者可能趋向于使用药物 A 而老年患者趋向于使用药物 B，或者年轻患者使用药物的剂量与老年患者存在差异。下表给出了对应的观察性数据：</p>
+<p>
+<img src=99017fa6d2814611327354c885863fcb.png alt=截图>
+</p>
+<p>ATE = 289/350 - 273/350 = 5%</p>
+<p><strong>辛普森悖论</strong></p>
+<p>除了对干预效果估计带来<strong>伪效应</strong>，混杂因子还会导致<strong>选择偏差(selection bias)</strong>：观察到组别中的分布$p(X_{obs} )$并不能代表我们感兴趣的组别$p(X_∗)$。</p>
+<h2 id=基于假设的因果推断方法>基于假设的因果推断方法</h2>
+<p>基于之前的三个假设，针对混杂因子的处理方法可以分为如下几种方法：</p>
+<h3 id=重加权法re-weighting-methods>重加权法(re-weighting methods)</h3>
+<p>由于干预组和对照组中的协变量(混杂因子也是协变量的一种，而协变量是背景变量的一种)的<strong>分布是不同</strong>的，这会导致<strong>选择偏差</strong>的出现，即干预的分配与观察数据中的协变量相关。通过对样本重加权来解决干预选择的偏差。创建出一个干预组与对照组分布类似的拟群。</p>
+<p><strong>倾向性评分</strong>：在给定背景变量时分配到特定干预的条件概率$e(x) = Pr(W = 1|X = x)$</p>
+<h4 id=基于倾向评分的样本重加权>基于倾向评分的样本重加权</h4>
+<p>逆倾向加权(IPW)为每个样本分配一个权重r：</p>
+<p></p>
+<p>加权后ATE：</p>
+<p></p>
+<p>将上式子进行归一化后的结果：</p>
+<p></p>
+<p>在大样本和小样本的场景中，通过倾向性重加权的方式都可以很好地平衡协变量所带来的选择偏差。</p>
+<p>但是，IPW估计器的正确性高度依赖于倾向性评分估计的正确性，<strong>倾向评分</strong>的轻微的错误会导致ATE出现较大的偏差。</p>
+<p>可以通过改善IPW估计器的方法来提升倾向评分估计的正确性。</p>
+<h3 id=混杂因子平衡>混杂因子平衡</h3>
+<p>对于样本重加权方法来说，其中所有的观察变量都被视为<strong>混杂因子</strong>，然而实际上并不是所有的观察变量都是混杂因子，其中一些变量被称为<strong>调整变量</strong>，只是对结果的预测，而其他一些变量可能是<strong>无关变量</strong>。通过对调整变量进行调整，虽然不能减少偏差，但有助于减少方差。而包含不相关的变量会导致过拟合。</p>
+<p>下面一个例子展示了关于<strong>混杂因子</strong>与<strong>调整变量</strong>的区别：</p>
+<p></p>
+<p>为了区分混杂因子与调整变量的不同影响，同时消除无关变量，可以采用的一种**数据驱动的可变性分解(Data-Driven Variable Decomposition)**算法，$z$是调整变量</p>
+<p></p>
+<p></p>
+<p>为了求解，需要基于观察变量对进行回归分析。该分析的目标函数是与所有观察变量的线性回归函数的$l_2$损失，以及用于区分混杂因子、调整变量与无关变量的稀疏正则项，这里还是需要<strong>人工进行区分</strong>。但是，实际中观察<strong>样本通常缺少关于观察变量的先验知识，同时数据通常是高维且包含噪声的</strong>。</p>
+<h3 id=分层方法stratification-methods>分层方法(stratification methods)</h3>
+<p>顾名思义即将整个组划分成同质性的亚组来调整干预组和对照组之间的偏差。在理想情况下，在每个亚组中，干预组和对照组的协变量的分布是类似的，因此来自相同亚组的单元可以近似看成是从随机对照实验数据中进行采样获取的。基于<strong>每个亚组的同质性假设</strong>条件，可以通过计算RCT的方式计算ATE：</p>
+<p></p>
+<p>和分别表示第$j$组中干预效果与对照效果的平均值，表示将$j$组单元占全部单元数的比例。</p>
+<p>分层，创建不同分组的方法：</p>
+<ul>
+<li>等频率法(如利用倾向性评分进行分组)，使得每个分组的协变量的概率分布相近。</li>
+<li>原则分层，基于后干预变量的潜在结果进行分组</li>
+</ul>
+<h3 id=基于树的方法tree-based-methods>基于树的方法(tree-based methods)</h3>
+<p>另一种流行的因果推理方法是基于决策树学习，它是预测建模方法之一。决策树是一种用于分类和回归的非参数监督学习方法。目标是创建一个模型，通过学习从数据中推断的简单决策规则来预测目标变量的值。</p>
+<p>目标变量是离散值的的树模型称为<strong>分类树</strong>，其预测误差是根据误分类损失值来度量的。在这些树结构中，叶子代表类标签，而分支代表导致这些类标签的特性的组合。</p>
+<p>目标变量连续的决策树称为<strong>回归树</strong>，其预测误差由观测值与预测值的平方差来衡量。在分类与回归树(CART)模型中，对数据空间进行分区，并对每个分区空间拟合一个简单的预测模型，因此每个分区都可以图形化地表示为一棵决策树。</p>
+<h3 id=元学习方法meta-learning-methods>元学习方法(meta-learning methods)</h3>
+<p>在对条件干预效果进行估算时，应该考虑两个关键问题：</p>
+<ul>
+<li>控制混杂因子，消除混杂因子与结果之间的伪关联性和选择偏差</li>
+<li>给出计算CATE的公式</li>
+</ul>
+<p>前面的方法都是同时去解决这两个问题，而基于元学习的算法则会将上述两部分拆开实现：</p>
+<ol>
+<li>估计条件平均结果$E[Y |X = x]$，该步骤得到预测模型为基学习器。</li>
+<li>基于第一步中结果的差异推导出CATE估计器。</li>
+</ol>
+<p>常见元学习算法包括S-Learner、T-Learner、X-Learner、R-Learner等。</p>
+<p><strong>S-Learner</strong>：将干预分配视为一个特征，采用单个机器学习模型来评估干预效果。</p>
+<p>估计平均结果</p>
+<p>CATE的评估结果表示为：</p>
+<p><strong>T-Learner</strong>：采用机器学习模型分别拟合和，即干预组和对照组采用两个模型来表示：</p>
+<p></p>
+<p>CATE的评估结果表示为：</p>
+<p><strong>X-Learner</strong>：在T-Learner的基础上的延拓。解决treatment组合control组数据量差异过大导致表现不佳的问题。</p>
+<p>包括三个步骤：</p>
+<pre><code>**步骤1** 对treatment和control组数据分别训练预测模型，构建平均结果估计&lt;img src=&quot;4adcaa337e01fc8fa3be18bf50a07e1c.png&quot; alt=&quot;截图&quot; style=&quot;zoom:50%;&quot; /&gt;和&lt;img src=&quot;efa6e0407f14ef9f2745df03939dfe00.png&quot; alt=&quot;截图&quot; style=&quot;zoom:50%;&quot; /&gt;：
+
+&lt;img src=&quot;17973dcba3d13fa6dd3d318d1628f6d3.png&quot; alt=&quot;截图&quot; style=&quot;zoom:50%;&quot; /&gt;
+
+**步骤2** 计算一组uplift的近似表示的数据集，用treatment组模型预测control组数据，control组模型预测treatment组数据，分别做与Y的差值得到增量的估计。
+</code></pre>
+<p>X-Learner计算观测结果与估计结果之间的<strong>差值</strong>，将其作为干预效果。</p>
+<p>和表示单元$i$在干预组和对照组中的预估差异值：</p>
+<p></p>
+<p>计算出差异后，将数据集转变成包含D的两组：干预组对照组干预组数据集。基于上述两个数据集再训练两个预测模型：</p>
+<p></p>
+<p></p>
+<pre><code>**步骤3** 加权计算得出CATE表达式
+</code></pre>
+<p></p>
+<p><strong>R-Learner</strong>：通过Robinson变换重新设计损失函数。</p>
+<p>变换过程：</p>
+<p>首先将观测结果重写为：</p>
+<p></p>
+<p>其中</p>
+<p>是对照组的基学习器，是CATE估计器，且（基于可忽略性假设）。</p>
+<p>CATE被重写为：</p>
+<p>其中是训练完成的倾向评分估计器(基学习器)。Robinson变换通过将上面两式相减得到：</p>
+<p></p>
+<p>为了获得最佳的CATE估计器，应当最小化和之间的差值。</p>
+<p><strong>目标函数</strong>：</p>
+<h2 id=demo阿里文娱智能营销uplift-model>demo：阿里文娱智能营销(uplift model)</h2>
+<p>目标：找出对营销敏感的人群。</p>
+<p>下图展现了对人群进行营销反馈的划分：</p>
+<p>
+<img src=21cc49533f8b62f0a10a84ba132f92e0.png alt=截图>
+</p>
+<p>
+<img src=dc3380525708fd58b57554f4be53f09b.png alt=截图>
+</p>
+<p>
+<img src=e43d939c049ababf6766072fd71a71dc.png alt=截图>
+</p>
+<p>
+<img src=f8c83bd234ae2e2c29b0c217ca9c0b2a.png alt=截图>
+</p>
+<p>
+<img src=4f62469004bf9915e4de910295a05b3c.png alt=截图>
+</p>
+<p>
+<img src=b32d9c09d05d5d48b61a9ae3592acb6f.png alt=截图>
+</p>
+<p>
+<img src=278da3f496fd819b2f55821cb4645bef.png alt=截图>
+</p>
+<p>
+<img src=16be6aa183b04f4955df43067d6afce9.png alt=截图>
+</p>
+<p>
+<img src=668e9425319d08229bcae7cbb5442307.png alt=截图>
+</p>
+<p>
+<img src=5e91132e044097753786e0568cb1a6be.png alt=截图>
+</p>
+<p>
+<img src=aad55f9f53bdd6873a4f1db115c4098c.png alt=截图>
+</p>
+<div class="entry-shang text-center">
+<p>「真诚赞赏，手留余香」</p>
+<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class=zs-modal-bg></div>
+<div class=zs-modal-box>
+<div class=zs-modal-head>
+<button type=button class=close>×</button>
+<span class=author><a href=https://yangyangdy.github.io/><img src=/img/favicon.png>YangYang Blog</a></span>
+<p class=tip><i></i><span>真诚赞赏，手留余香</span></p>
+</div>
+<div class=zs-modal-body>
+<div class=zs-modal-btns>
+<button class="btn btn-blink" data-num=2>2元</button>
+<button class="btn btn-blink" data-num=5>5元</button>
+<button class="btn btn-blink" data-num=10>10元</button>
+<button class="btn btn-blink" data-num=50>50元</button>
+<button class="btn btn-blink" data-num=100>100元</button>
+<button class="btn btn-blink" data-num=1>任意金额</button>
+</div>
+<div class=zs-modal-pay>
+<button class="btn btn-bred" id=pay-text>2元</button>
+<p>使用<span id=pay-type>微信</span>扫描二维码完成支付</p>
+<img src=/img/reward/wechat-2.png id=pay-image>
+</div>
+</div>
+<div class=zs-modal-footer>
+<label><input type=radio name=zs-type value=wechat class=zs-type checked><span><span class=zs-wechat><img src=/img/reward/wechat-btn.png></span></label>
+<label><input type=radio name=zs-type value=alipay class=zs-type class=zs-alipay><img src=/img/reward/alipay-btn.png></span></label>
+</div>
+</div>
+<script type=text/javascript src=/js/reward.js></script>
+<hr>
+<ul class=pager>
+<li class=next>
+<a href=/post/my-third-post/ data-toggle=tooltip data-placement=top title="My Third Post">Next
+Post &rarr;</a>
+</li>
+</ul>
+</div>
+<div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container">
+<div class=side-catalog>
+<hr class="hidden-sm hidden-xs">
+<h5>
+<a class=catalog-toggle href=#>CATALOG</a>
+</h5>
+<ul class=catalog-body></ul>
+</div>
+</div>
+<div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container">
+<section>
+<hr class="hidden-sm hidden-xs">
+<h5><a href=/tags/>FEATURED TAGS</a></h5>
+<div class=tags>
+</div>
+</section>
+</div>
+</div>
+</div>
+</article>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center">
+<li>
+<a href=mailto:cuzoyoung@gmail.com>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target=_blank href=https://github.com/yangyangdy>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href rel=alternate type=application/rss+xml title="YangYang Blog">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="copyright text-muted">
+Copyright &copy; YangYang Blog 2023
+<br>
+<a href=https://themes.gohugo.io/hugo-theme-cleanwhite>CleanWhite Hugo Theme</a> by <a href=https://zhaohuabing.com>Huabing</a> |
+<iframe style=margin-left:2px;margin-bottom:-5px frameborder=0 scrolling=0 width=100px height=20px src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true"></iframe>
+</p>
+</div>
+</div>
+</div>
+</footer>
+<script>function loadAsync(f,b){var c=document,d='script',a=c.createElement(d),e=c.getElementsByTagName(d)[0];a.src=f,b&&a.addEventListener('load',function(a){b(null,a)},!1),e.parentNode.insertBefore(a,e)}</script>
+<script>$('#tag_cloud').length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:'#bbbbee',end:'#0085a1'}},$('#tag_cloud a').tagcloud()})</script>
+<script>loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js",function(){var a=document.querySelector("nav");a&&FastClick.attach(a)})</script>
+<script type=text/javascript>function generateCatalog(a){_containerSelector='div.post-container';var h=$(_containerSelector),c,d,e,f,g,b;return c=h.find('h1,h2,h3,h4,h5,h6'),$(a).html(''),c.each(function(){d=$(this).prop('tagName').toLowerCase(),g="#"+$(this).prop('id'),e=$(this).text(),b=$('<a href="'+g+'" rel="nofollow">'+e+'</a>'),f=$('<li class="'+d+'_nav"></li>').append(b),$(a).append(f)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(a){a.preventDefault(),$('.side-catalog').toggleClass("fold")}),loadAsync("/js/jquery.nav.js",function(){$('.catalog-body').onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script>
+</body>
+</html>
