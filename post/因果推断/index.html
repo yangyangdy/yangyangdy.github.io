@@ -86,13 +86,16 @@ post-container">
 <h2 id=因果推断定义>因果推断定义</h2>
 <p>因果推断Causal Inference是基于观察数据进行反事实估计，分析干预与结果之间的因果关系的一门学科。</p>
 <p>痛点：传统的实验性研究（RCT）耗费人力物力，并且存在一些不可逾越的障碍。</p>
+<br>
 <h2 id=厘清相关性和因果性的关系>厘清相关性和因果性的关系</h2>
 <p>在日常生活中经常将相关性和因果性混淆。但是，相关性和因果性有着本质的区别。</p>
 <p><em><strong>相关不代表因果（correlation does not imply causation）</strong></em>。</p>
 <p><strong>相关性</strong>：两个变量之间呈现一个变量随另一个变量的变化而表现出增加或者减少的趋势。</p>
 <p><strong>因果性</strong>：一个变量的因导致了另一个变量的果 。</p>
+<br>
 <p><strong>eg.<strong>吃早餐的人比不吃早餐的人体重轻并不能推出吃早餐有助于减肥。而可能是吃早餐的人拥有更好的生活方式，这导致了他们有更轻的体重。在这种情况下，拥有更好的生活方式是吃早餐和体重减轻的共同原因，当然健康的生活方式也可以称为吃早餐和体重轻重之间因果关系的</strong>混淆因子</strong>。</p>
 <p>现实生活中我们会遇到更多更加复杂的两种行为之间的关系，因此因果推断就显得非常必要。</p>
+<br>
 <p>探究因果关系<strong>最有效</strong>的方法就是进行<strong>随机对照试验(RCT randomized controlled trial)</strong>。将参与者随机分成对照组和实验组，控制变量来观测目标干预的效果。</p>
 <p><strong>缺点</strong>：</p>
 <ul>
@@ -101,9 +104,11 @@ post-container">
 <li>道德问题，实际无法操作</li>
 </ul>
 <p>因此，可以通过基于观察性数据来进行因果推断。观察性数据通过直接观察目标得出，没有对照也没有控制变量。因此，我们无法进行反事实结果的推断，而无法探究其因果关系。</p>
+<br>
 <p>现在，因果推断中两个主流的研究方案：</p>
 <p><strong>潜在结果框架potential outcome framework</strong>：预估不同干预下的潜在结果，以估计实际的干预结果。</p>
 <p><strong>结构因果模型structual causal model</strong>：通过构建因果图与结构方程来探究因果关系。</p>
+<br>
 <h2 id=因果推断基础>因果推断基础</h2>
 <p>在下面主要介绍潜在结果框架下的因果推断方法。</p>
 <h3 id=基本定义>基本定义</h3>
@@ -113,6 +118,7 @@ post-container">
 <p><strong>潜在结果（potential outcome）</strong>。对于每一个单元-干预对，对于干预作用在该单元所得到的结果称为<strong>潜在结果</strong>。将干预值为$w$的潜在结果定义为$Y(W=w)$。</p>
 <p><strong>观察结果（observed outcome）</strong>。指<strong>实际</strong>执行了干预所对应的结果。用$Y^F$表示。</p>
 <p><strong>反事实结果（Counterfactual outcome）</strong>。单元如果执行了另一种干预所得到的结果。用$Y^{CF}$表示。</p>
+<br>
 <p>在观察数据中，除了执行的干预和观察结果，unit的其他信息也会被记录，这些信息被称为预干预变量和后干预变量。</p>
 <p><strong>预干预变量（pre-treatment variables）</strong>。指不会被干预影响的变量，也称为<strong>背景变量</strong>， 例如患者的疾病史。定义$X$为预干预变量。</p>
 <p><strong>后干预变量（post-treatment variables）</strong>。指会被干预影响的变量。一个例子就是中间结果，例如药物试验中服药后的实验室检查结果。后续的变量指代后干预变量。</p>
@@ -131,6 +137,7 @@ post-container">
 <p>在<strong>个体</strong>层面，干预效果被称为<strong>个体干预效果(Individual treatment effect, ITE)</strong>，单元$i $的ITE效果表示为：</p>
 <p>$$ITE_{i} = Y_{i}(W = 1) − Y_{i}(W = 0),$$在部分情况下可以将ITE与CATE视作等价。</p>
 <p><strong>因果推断的目标</strong>是从观察数据中估计干预的效果。对于给定的数据集 ${X_i, W_i, Y_{i}^F}_{i=1}^N$，估计上述定义的各项**干预效果**。</p>
+<br>
 <p>结合一个案例进行讲解：</p>
 <p>在一个医疗场景中，我们想要评估不同药物对某种疾病的疗效。</p>
 <p>获得的观察性数据：若干患者的电子健康记录（包括人口统计学信息，患者铎服用的具体药物与具体剂量，相关检查检验的结果）。从数据中我们只能观察到特定患者的特定事实结果。</p>
@@ -141,17 +148,17 @@ post-container">
 <li><strong>可忽略性假设</strong>： 给定背景变量$X$，干预的分配$W$独立于潜在结果，对背景变量相同的单元其干预分配可以视为随机的。即无论潜在结果如何，这两名患者的干预分配策略也会是相同的。</li>
 <li><strong>正值假设</strong>：对于任意的$X$，干预分配都是不确定的。</li>
 </ul>
-<p>由此可以得到如下公式：
-<img src=a4358ff136754491e747063656b34f8d.png alt=截图了哦>
-</p>
+<p>由此可以得到如下公式：</p>
+<img src=a4358ff136754491e747063656b34f8d.png alt=截图 style=zoom:50%>
 <p>基于上面的等式可以得到下面在不同层面干预效果的公式：</p>
-<p></p>
+<p><img src=fc48d8b7cf9c785866bb694a089eee03.png alt=截图 style=zoom:50%></p>
 <p>上述公式都转换成了基于不同组别的ITE的均值。</p>
 <p>由于我们无法同时观察到一个单元的潜在干预结果与对照结果，因此，干预效果的估计关键在于<strong>如何估计ITE的反事实结果</strong>。</p>
+<br>
 <h2 id=混杂因子的影响和处理方式>混杂因子的影响和处理方式</h2>
 <p><strong>混杂因子(Confounders)</strong>：混杂因子是会同时影响干预分配以及结果的变量。</p>
 <p>因果推断的核心是估计在一个特定的组别上的平均潜在干预结果与对照结果，以ATE为例：</p>
-<p></p>
+<p><img src=ca041be806ccd199cf45895257b5ecd3.png alt=截图 style=zoom:50%></p>
 <p>$N_T$和$N_C$分别是干预组合对照组的单元数量。</p>
 <p>由于混杂因子的原因，上述的估计方式存在严重的误差，甚至会包含虚假的因果效应。</p>
 <p><strong>混杂因子</strong>是一些<strong>特殊的预干预变量（即背景变量）</strong>，当直接计算观测到的干预与对照结果的平均值时，所得出的 不仅包括了干预对结果的影响，<strong>还包括了混杂因子对结果的影响</strong>，从而导致了伪效的出现。在上面的例子中，患者年龄就是一个混杂因子。年龄影响着康复率：一般来说，年轻患者要比老年患者恢复地更好；年龄同时还影响着干预的选择：年轻的患者可能趋向于使用药物 A 而老年患者趋向于使用药物 B，或者年轻患者使用药物的剂量与老年患者存在差异。下表给出了对应的观察性数据：</p>
@@ -168,26 +175,27 @@ post-container">
 <p><strong>倾向性评分</strong>：在给定背景变量时分配到特定干预的条件概率$e(x) = Pr(W = 1|X = x)$</p>
 <h4 id=基于倾向评分的样本重加权>基于倾向评分的样本重加权</h4>
 <p>逆倾向加权(IPW)为每个样本分配一个权重r：</p>
-<p></p>
+<p><img src=60d1e9f4cf395bf4cad208db229344d8.png alt=截图 style=zoom:50%></p>
 <p>加权后ATE：</p>
-<p></p>
+<p><img src=d7f72efe99286fbbcfecdf80e5aa885a.png alt=截图 style=zoom:50%></p>
 <p>将上式子进行归一化后的结果：</p>
-<p></p>
+<p><img src=06647baf9243f594d472090f367c0912.png alt=截图 style=zoom:50%></p>
 <p>在大样本和小样本的场景中，通过倾向性重加权的方式都可以很好地平衡协变量所带来的选择偏差。</p>
 <p>但是，IPW估计器的正确性高度依赖于倾向性评分估计的正确性，<strong>倾向评分</strong>的轻微的错误会导致ATE出现较大的偏差。</p>
 <p>可以通过改善IPW估计器的方法来提升倾向评分估计的正确性。</p>
 <h3 id=混杂因子平衡>混杂因子平衡</h3>
 <p>对于样本重加权方法来说，其中所有的观察变量都被视为<strong>混杂因子</strong>，然而实际上并不是所有的观察变量都是混杂因子，其中一些变量被称为<strong>调整变量</strong>，只是对结果的预测，而其他一些变量可能是<strong>无关变量</strong>。通过对调整变量进行调整，虽然不能减少偏差，但有助于减少方差。而包含不相关的变量会导致过拟合。</p>
 <p>下面一个例子展示了关于<strong>混杂因子</strong>与<strong>调整变量</strong>的区别：</p>
-<p></p>
+<p><img src=15f3f537eb9701bc443cd822dbdbaf61.png alt=截图 style=zoom:50%></p>
 <p>为了区分混杂因子与调整变量的不同影响，同时消除无关变量，可以采用的一种**数据驱动的可变性分解(Data-Driven Variable Decomposition)**算法，$z$是调整变量</p>
-<p></p>
-<p></p>
-<p>为了求解，需要基于观察变量对进行回归分析。该分析的目标函数是与所有观察变量的线性回归函数的$l_2$损失，以及用于区分混杂因子、调整变量与无关变量的稀疏正则项，这里还是需要<strong>人工进行区分</strong>。但是，实际中观察<strong>样本通常缺少关于观察变量的先验知识，同时数据通常是高维且包含噪声的</strong>。</p>
+<p><img src=9d3c903cee16874705f65c5aec35f9bc.png alt=截图 style=zoom:50%></p>
+<p><img src=9280163c5157e061a0cef9ae2db27087.png alt=截图 style=zoom:50%></p>
+<p>为了求解<img src=73621e8cf7ee7077ae6f2c00acdfc47a.png alt=截图 style=zoom:50%>，需要基于观察变量对<img src=fa75364b6cff8b533d640fe1b2da941b.png alt=截图 style=zoom:50%>进行回归分析。该分析的目标函数是<img src=fa75364b6cff8b533d640fe1b2da941b.png alt=截图 style=zoom:50%>与所有观察变量的线性回归函数的$l_2$损失，以及用于区分混杂因子、调整变量与无关变量的稀疏正则项，这里还是需要<strong>人工进行区分</strong>。但是，实际中观察<strong>样本通常缺少关于观察变量的先验知识，同时数据通常是高维且包含噪声的</strong>。</p>
 <h3 id=分层方法stratification-methods>分层方法(stratification methods)</h3>
 <p>顾名思义即将整个组划分成同质性的亚组来调整干预组和对照组之间的偏差。在理想情况下，在每个亚组中，干预组和对照组的协变量的分布是类似的，因此来自相同亚组的单元可以近似看成是从随机对照实验数据中进行采样获取的。基于<strong>每个亚组的同质性假设</strong>条件，可以通过计算RCT的方式计算ATE：</p>
-<p></p>
-<p>和分别表示第$j$组中干预效果与对照效果的平均值，表示将$j$组单元占全部单元数的比例。</p>
+<p><img src=4d374e05cc6c01807c5de70d4700c7af.png alt=截图 style=zoom:50%></p>
+<p><img src=668a18d1a1fd75fcfe4e535c120b7af1.png alt=截图 style=zoom:50%>和<img src=0f77afc0da5b17a81151c1fdbcc65f88.png alt=截图 style=zoom:50%>分别表示第$j$组中干预效果与对照效果的平均值，<img src=c490c6dee35e799d1ee723ae1cf054a1.png alt=截图 style=zoom:50%>表示将$j$组单元占全部单元数的比例。</p>
+<br>
 <p>分层，创建不同分组的方法：</p>
 <ul>
 <li>等频率法(如利用倾向性评分进行分组)，使得每个分组的协变量的概率分布相近。</li>
@@ -210,39 +218,37 @@ post-container">
 </ol>
 <p>常见元学习算法包括S-Learner、T-Learner、X-Learner、R-Learner等。</p>
 <p><strong>S-Learner</strong>：将干预分配视为一个特征，采用单个机器学习模型来评估干预效果。</p>
-<p>估计平均结果</p>
-<p>CATE的评估结果表示为：</p>
-<p><strong>T-Learner</strong>：采用机器学习模型分别拟合和，即干预组和对照组采用两个模型来表示：</p>
-<p></p>
-<p>CATE的评估结果表示为：</p>
+<p>估计平均结果<img src=b83639f4cda70509b08ce96b9f45ea5b.png alt=截图 style=zoom:50%></p>
+<p>CATE的评估结果表示为：<img src=0f3acf7ecd3d365c92abaf497d7e5fc9.png alt=截图 style=zoom:50%></p>
+<p><strong>T-Learner</strong>：采用机器学习模型分别拟合<img src=4adcaa337e01fc8fa3be18bf50a07e1c.png alt=截图 style=zoom:50%>和<img src=efa6e0407f14ef9f2745df03939dfe00.png alt=截图 style=zoom:50%>，即干预组和对照组采用两个模型来表示：</p>
+<p><img src=f1b89d8e6cbad2e9f2253fa33c63b387.png alt=截图 style=zoom:50%></p>
+<p>CATE的评估结果表示为：<img src=61574cc2f3447577cd7673a5725da0f7.png alt=截图 style=zoom:50%></p>
 <p><strong>X-Learner</strong>：在T-Learner的基础上的延拓。解决treatment组合control组数据量差异过大导致表现不佳的问题。</p>
-<p>包括三个步骤：</p>
-<pre><code>**步骤1** 对treatment和control组数据分别训练预测模型，构建平均结果估计&lt;img src=&quot;4adcaa337e01fc8fa3be18bf50a07e1c.png&quot; alt=&quot;截图&quot; style=&quot;zoom:50%;&quot; /&gt;和&lt;img src=&quot;efa6e0407f14ef9f2745df03939dfe00.png&quot; alt=&quot;截图&quot; style=&quot;zoom:50%;&quot; /&gt;：
-
-&lt;img src=&quot;17973dcba3d13fa6dd3d318d1628f6d3.png&quot; alt=&quot;截图&quot; style=&quot;zoom:50%;&quot; /&gt;
-
-**步骤2** 计算一组uplift的近似表示的数据集，用treatment组模型预测control组数据，control组模型预测treatment组数据，分别做与Y的差值得到增量的估计。
-</code></pre>
-<p>X-Learner计算观测结果与估计结果之间的<strong>差值</strong>，将其作为干预效果。</p>
-<p>和表示单元$i$在干预组和对照组中的预估差异值：</p>
-<p></p>
-<p>计算出差异后，将数据集转变成包含D的两组：干预组对照组干预组数据集。基于上述两个数据集再训练两个预测模型：</p>
-<p></p>
-<p></p>
+<p>包括三个步骤：
+<strong>步骤1</strong> 对treatment和control组数据分别训练预测模型，构建平均结果估计<img src=4adcaa337e01fc8fa3be18bf50a07e1c.png alt=截图 style=zoom:50%>和<img src=efa6e0407f14ef9f2745df03939dfe00.png alt=截图 style=zoom:50%>：
+<img src=17973dcba3d13fa6dd3d318d1628f6d3.png alt=截图 style=zoom:50%>
+<strong>步骤2</strong> 计算一组uplift的近似表示的数据集，用treatment组模型预测control组数据，control组模型预测treatment组数据，分别做与Y的差值得到增量的估计。
+X-Learner计算观测结果与估计结果之间的<strong>差值</strong>，将其作为干预效果。</p>
+<p><img src=8f2116b5dfb6fabf35d0cbb3e22fdccb.png alt=截图 style=zoom:50%>和<img src=4f27994d27d1836f7b7ef06387731819.png alt=截图 style=zoom:50%>表示单元$i$在干预组和对照组中的预估差异值：</p>
+<p><img src=cbdef8b7f4ad774fe050a028cf3029c0.png alt=截图 style=zoom:50%></p>
+<p>计算出差异后，将数据集转变成包含D的两组：干预组<img src=2190f90a27e8e13faf4cab9b711791bc.png alt=截图 style=zoom:50%>对照组<img src=0e9bb5e5f64711a0536bd9b8ae8bf2e9.png alt=截图 style=zoom:50%>干预组数据集。基于上述两个数据集再训练两个预测模型：</p>
+<p><img src=c7e78602c427aae2e343ac8d49a73cde.png alt=截图 style=zoom:50%></p>
+<p><img src=d9584681c145a48ced7a8f7b8cfc1f12.png alt=截图 style=zoom:50%></p>
 <pre><code>**步骤3** 加权计算得出CATE表达式
 </code></pre>
-<p></p>
+<p><img src=f04cc262c37cdd312b2cb8a09f82f631.png alt=截图 style=zoom:50%></p>
 <p><strong>R-Learner</strong>：通过Robinson变换重新设计损失函数。</p>
 <p>变换过程：</p>
 <p>首先将观测结果重写为：</p>
-<p></p>
+<p><img src=25a0fca876f0e3531f4bda196b17778d.png alt=截图 style=zoom:50%></p>
 <p>其中</p>
-<p>是对照组的基学习器，是CATE估计器，且（基于可忽略性假设）。</p>
-<p>CATE被重写为：</p>
-<p>其中是训练完成的倾向评分估计器(基学习器)。Robinson变换通过将上面两式相减得到：</p>
-<p></p>
-<p>为了获得最佳的CATE估计器，应当最小化和之间的差值。</p>
-<p><strong>目标函数</strong>：</p>
+<p><img src=c79512a3751d596d41d97b4a09be66ae.png alt=截图 style=zoom:50%>是对照组的基学习器，<img src=fc59a9caa4e076cd5f0a3885040e0f00.png alt=截图 style=zoom:50%>是CATE估计器，且<img src=b292626a9d5c0a14f8b2540d52554031.png alt=截图 style=zoom:50%>（基于可忽略性假设）。</p>
+<p>CATE被重写为：<img src=177a95185390c462c8359c5837867f50.png alt=截图 style=zoom:50%></p>
+<p>其中<img src=649b2412ce7b68e6d3f9e8c9c583ad57.png alt=截图 style=zoom:50%>是训练完成的倾向评分估计器(基学习器)。Robinson变换通过将上面两式相减得到：</p>
+<p><img src=442d15597fd385ae7dbb41d54f9670dc.png alt=截图 style=zoom:50%></p>
+<p>为了获得最佳的CATE估计器，应当最小化<img src=5267c1d60e72a610a2823f008ebe5188.png alt=截图 style=zoom:50%>和<img src=8ade98df86635478044cc1876b9abd6f.png alt=截图 style=zoom:50%>之间的差值。</p>
+<p><strong>目标函数</strong>：<img src=3cab731726b2d250dd3209598fefd1e0.png alt=截图 style=zoom:50%></p>
+<br>
 <h2 id=demo阿里文娱智能营销uplift-model>demo：阿里文娱智能营销(uplift model)</h2>
 <p>目标：找出对营销敏感的人群。</p>
 <p>下图展现了对人群进行营销反馈的划分：</p>
